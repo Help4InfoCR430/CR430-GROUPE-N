@@ -1,8 +1,6 @@
 ﻿param([string] $LegalNoticeMessageFile = "", [string] $ExecutionListFile = "")
 
 # CIS Microsoft Windows Server 2019 RTM Benchmark
-# You can get the most up to date version in:
-# https://github.com/viniciusmiguel/CIS-Microsoft-Windows-Server-2019-Benchmark
 
 ##########################################################################################################
 $LogonLegalNoticeMessageTitle = ""
