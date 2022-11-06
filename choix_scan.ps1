@@ -30,7 +30,8 @@ $MENU = Read-Host "Faites votre choix "
 Switch ($MENU)
     {
         0 {
-            $RGName = Read-Host -Prompt 'Entrez le nom de votre ressource groupe que vous voulez balayer'
+             $RGName = Read-Host -Prompt 'Entrez le nom de votre ressource groupe que vous voulez balayer'
+            $PublicIPName = $RGName+ "PIP"
             $vmPublicIp = (Get-AzPublicIpAddress -ResourceGroupName $RGName  | Where-Object {$_.name -like "$PublicIPName"}).IpAddress 
             $ProgramName = "C:\Program Files (x86)\Nmap\nmap.exe"
             $xml = "-oX $($vmPublicIp)_Ping_Scan.xml"
@@ -51,6 +52,7 @@ Switch ($MENU)
 
         1  {
             $RGName = Read-Host -Prompt 'Entrez le nom de votre ressource groupe que vous voulez balayer'
+            $PublicIPName = $RGName+ "PIP"
             $vmPublicIp = (Get-AzPublicIpAddress -ResourceGroupName $RGName  | Where-Object {$_.name -like "$PublicIPName"}).IpAddress 
             $ProgramName = "C:\Program Files (x86)\Nmap\nmap.exe"
             $xml = "-oX $($vmPublicIp)_intense.xml"
@@ -69,7 +71,8 @@ Switch ($MENU)
             DisplayMenuNmap
            }
          2 {
-            $RGName = Read-Host -Prompt 'Entrez le nom de votre ressource groupe que vous voulez balayer'
+             $RGName = Read-Host -Prompt 'Entrez le nom de votre ressource groupe que vous voulez balayer'
+            $PublicIPName = $RGName+ "PIP"
             $vmPublicIp = (Get-AzPublicIpAddress -ResourceGroupName $RGName  | Where-Object {$_.name -like "$PublicIPName"}).IpAddress 
             $ProgramName = "C:\Program Files (x86)\Nmap\nmap.exe"
             $xml = "-oX $($vmPublicIp)_intense_allTCPPORT.xml"
